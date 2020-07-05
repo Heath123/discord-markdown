@@ -31,19 +31,9 @@ markdown.htmlTag = htmlTag;
 const rules = {
 	blockQuote: Object.assign({}, markdown.defaultRules.blockQuote, {
 		match: function(source, state, prevSource) {
-			return !/^$|\n *$/.test(prevSource) || state.inQuote ? null : /^( *>>> ([\s\S]*))|^( *> [^\n]*(\n *> [^\n]*)*\n?)/.exec(source);
+			return false;
 		},
-		parse: function(capture, parse, state) {
-			const all = capture[0];
-			const isBlock = Boolean(/^ *>>> ?/.exec(all));
-			const removeSyntaxRegex = isBlock ? /^ *>>> ?/ : /^ *> ?/gm;
-			const content = all.replace(removeSyntaxRegex, '');
-
-			return {
-				content: parse(content, Object.assign({ }, state, { inQuote: true })),
-				type: 'blockQuote'
-			}
-		}
+		parse: function() {}
 	}),
 	codeBlock: Object.assign({ }, markdown.defaultRules.codeBlock, {
 		match: markdown.inlineRegex(/^```(([a-z0-9-]+?)\n+)?\n*([^]+?)\n*```/i),
