@@ -1,6 +1,6 @@
 # discord-markdown
 A markdown parser for Discord messages.<br>
-This foek disabled blockquote parsing, which is something I want because I want to leave them as plain text. This probably isn't useful for anyone else.
+This fork disables blockquote parsing, which is something I want because I want to leave them as plain text. This probably isn't useful for anyone else.
 
 ## Using
 
